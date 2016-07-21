@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+
+{%block contenido%}
+<form method="POST">{% csrf_token %}
+	{{f.as_p}}	
+	
+	<div class="well well-sm">
+		<input type="submit" value="Modificar" class="btn btn-success">	
+		<a href="../eliminar?codigo={{materia.codigo}}" class="btn btn-danger">Eliminar</a>
+	</div>
+	</input>
+</form>
+{%endblock%}
+
+

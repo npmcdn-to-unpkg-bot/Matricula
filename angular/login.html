@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html  lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Leer de WebServices</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="angular/angular.min.js"></script>
+		<script src="angular/angular-resource.min.js"></script>
+		<script src="login.js"></script>
+	</head>
+	<body ng-app="app">
+	<div ng-controller="controlador">
+		<center>
+<center>
+		<h4 class="alert alert-info">
+			<strong>LOGIN DE ESTUDIANTES</strong>
+		</h4>
+	</center>
+	<p>Permite el ingreso de estudiantes mediante la cedula para revisar materias disponibles</p>
+			<form class="form-inline" role="form">
+				  <div class="form-group">
+				  	<br>CEDULA:<input type="text" ng-model="cedula"><br><br>
+				    <input type="submit" ng-click="validar()" value="validar">
+				  </div>
+			</form>	
+		</center>
+		<!--<p>Estas son las cedulas de los estudiantes que estan ingresados</p>
+		{{lista_alumnos}}-->
+	</div>		  
+</body>
+</html>

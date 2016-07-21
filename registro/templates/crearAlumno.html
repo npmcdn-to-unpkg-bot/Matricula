@@ -1,0 +1,11 @@
+{%extends "master.html" %}
+{%block contenido%}
+<section>
+	<form action="" method="POST" class="form-horizontal">{% csrf_token %}
+	<div class="form-group">
+		{{f.as_p}}
+		<input type="submit" value="Guardar"  class="btn btn-success"></input>
+	</div>
+	</form>
+</section>
+{%endblock%}

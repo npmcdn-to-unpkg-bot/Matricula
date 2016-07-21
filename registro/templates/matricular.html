@@ -1,0 +1,27 @@
+{%extends "master.html" %}
+{%block contenido%}
+<section>
+	{%if materia%}
+		<center>
+			<h2  class="alert alert-info">ELIJA LA MATERIA A MATRICULARSE</h2>
+		</center>
+		<table class="table table-hover">
+			<tr style="background:#000000; color:#FFFFFF">
+				<td><b>NOMBRE</b></td>
+				<td><b>CUPOS</b></td>
+				<td><b>OPCION</b></td>
+			</tr>
+			{%for m in materia%}
+			<tr>
+				<td><b>{{m.nombre}}</b></td>
+				<td><b>{{m.cupos}}</b></td>
+				<td><a href="../registrar?cedula={{alumno.cedula}}&codigo={{m.codigo}}"><b>MATRICULARSE</b></a></td>
+			</tr>
+			{%endfor%}
+		</table>	
+	{%else%}
+		<center  class="alert alert-warning"><h4>NO HAY MATERIAS EN LA BASE DE DATOS PARA PORDER MATRICULAR AL ALUMNO</h4></center>
+	{%endif%}
+	<a href=".." class="btn btn-success">REGRESAR</a>
+</section><br><br>	
+{%endblock%}

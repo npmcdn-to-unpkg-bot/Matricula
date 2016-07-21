@@ -1,0 +1,78 @@
+{%extends "master.html" %}
+{%block contenido%}
+<section>
+	{%if alumno%}
+		<h3  class="alert alert-info"><b>LISTA DE ALUMNOS REGISTRADOS<b></h3>
+		<table class="table table-hover">
+			<tr style="background:#00BFFF; color:#000000">
+				<td><b>Cedula</b></td>
+				<td><b>Nombres</b></td>
+				<td><b>Apellido</b></td>
+				<td><b>Edad</b></td>
+				<td><b>Genero</b></td>
+				<td><b>Opciones</b></td>			
+				
+			</tr>
+			{%for p in alumno%}
+			<tr>
+				<td>{{p.cedula}}</td>
+				<td>{{p.nombre}}</td>
+				<td>{{p.apellido}}</td>
+				<td>{{p.edad}}</td>
+				<td>{{p.genero}}</td>
+				<td><a href="./matricular?cedula={{p.cedula}}"><span class="glyphicon glyphicon-folder-open" aria-hidden="true">Matricular</span></a>|<a href="./modificarAlumno?cedula={{p.cedula}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifcar</span></a> |<a href="./eliminarAlumno?cedula={{p.cedula}}"><span class="glyphicon glyphicon-remove" aria-hidden="true">Eliminar</span></a> </td>
+			</tr>
+			{%endfor%}
+		</table>
+	{%else%}
+		<h3>NO HAY ALUMNOS REGISTRADOS EN LA BASE</h3>	
+	{%endif%}
+	<a href="crearAlumno"class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Agregar Alumnos</a>
+	<br><br><br>
+	{%if materia%}
+		<h3  class="alert alert-info"><b>LISTA DE MATERIAS REGISTRADAS<b></h3>
+		<table class="table table-hover">
+			<tr style="background:#00BFFF; color:#000000">
+				<td><b>Nombres</b></td>
+				<td><b>Codigo</b></td>
+				<td><b>Cupos</b></td>
+				<td><b>Matriculados</b></td>					
+				<td><b>Opciones</b></td>	
+			</tr>
+			{%for p in materia%}
+			<tr>
+				<td>{{p.nombre}}</td>
+				<td>{{p.codigo}}</td>
+				<td>{{p.cupos}}</td>
+				<td>{{p.matriculados}}</td>
+				<td><a href="./modificarMateria?codigo={{p.codigo}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifcar</span></a> |<a href="./eliminarMateria?codigo={{p.codigo}}"><span class="glyphicon glyphicon-remove" aria-hidden="true">Eliminar</span></a> </td>				
+			</tr>
+			{%endfor%}
+		</table>
+	{%else%}
+		<h3 class="alert alert-warning">NO HAY MATERIAS REGISTRADAS EN LA BASE</h3>	
+	{%endif%}
+	<a href="crearMateria"class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Agregar Materias</a>
+
+	<br><br><br>
+
+
+
+
+
+
+	<table class="table table-hover">
+			<tr style="background:#00BFFF; color:#000000">
+				<td><b>alumno</b></td>
+				<td><b>materia</b></td>
+			</tr>
+			{%for p in registros%}
+			<tr>
+				<td>{{p.idAlumno}}</td>
+				<td>{{p.idMateria}}</td>
+			</tr>
+			{%endfor%}
+	</table>
+
+</section><br><br>	
+{%endblock%}

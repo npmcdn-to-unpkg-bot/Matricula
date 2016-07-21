@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Validar cedula</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="../angular/angular.min.js"></script>
+	<script src="../angular/angular-resource.min.js"></script>
+	<script src="login.js"></script>
+</head>
+<body ng-app="app">
+	<div ng-controller="controlador">
+	<center>
+		<h4 class="alert alert-info">
+			<strong>LISTADO DE MATERIAS</strong>
+		</h4>
+	</center>
+	
+	<br>
+	<label>
+		<strong>BUSCAR:</strong>
+	</label>
+	<input type="text" name="buscar" placeholder="Buscar" ng-model="busqueda"></input>
+	<br> <br>
+
+	<table class="table table-hover">
+			<tr>
+				<th>NOMBRE</th>
+				<th>CUPOS</th>
+				<th>MATRICULADOS</th>	
+			</tr>
+			<tr ng-repeat="datos in lista_materias | filter:busqueda">
+				<td>{{datos.nombre}}</td>
+				<td>{{datos.cupos}}</td>
+				<td>{{datos.matriculados}}</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>
